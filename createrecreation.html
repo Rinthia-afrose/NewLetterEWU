@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create Recreation Article - East West University</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="categoryPages.css" />
+    <link rel="stylesheet" href="CreateRecreation.css" />
+    <link rel="stylesheet" href="majorEvents.css">
+  </head>
+  <body class="create-recreation-page">
+    <script>
+      // Check if user is logged in
+      if (!localStorage.getItem("isLoggedIn")) {
+        window.location.href = "loginPage.html";
+      }
+    </script>
+    <!-- Top Header Bar -->
+    <header class="header">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="logo">
+              <a href="homepage.html"><img
+                src="Images/logo.png"
+                alt="East West University"
+                class="header-logo"/></a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="header-right">
+              <nav class="header-nav">
+                <a href="homepage.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link notification-link">
+                  Notification
+                  <span class="notification-badge">2</span>
+                </a>
+                <a href="printPage.html" class="nav-link">Prints</a>
+                <a href="vcNewsletter.html" class="nav-link">VC Newsletter</a>
+                <div class="user-dropdown">
+                  <a href="#" class="nav-link" id="userBtn">Profile</a>
+                  <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="profile.html" class="dropdown-item">
+                      <i class="bi bi-person"></i> View Profile
+                    </a>
+                    <a
+                      href="loginPage.html"
+                      class="dropdown-item"
+                      id="logoutLink"
+                    >
+                      <i class="bi bi-box-arrow-right"></i> Logout
+                    </a>
+                  </div>
+                </div>
+              </nav>
+              <div class="search-container">
+                <i class="bi bi-search search-icon"></i>
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Search..."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Title Bar - Top of page -->
+    <div class="page-title-bar">
+      <div class="container-fluid">
+        <h1 class="page-title">Create Recreation Article</h1>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+     
+      <!-- Back Button -->
+      <button
+        type="button"
+        class="btn btn-secondary back-btn"
+        onclick="window.location.href='recreation.html'"
+      >
+        <i class="bi bi-arrow-left-circle"></i>
+      </button>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Form Container -->
+        <div class="form-container">
+          <form id="createRecreationForm">
+            <!-- Section 1: Recreation Info -->
+            <div class="form-section">
+              <h2 class="section-title">Recreation Info</h2>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="activityTitle" class="form-label"
+                    >Activity Title *</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="activityTitle"
+                    placeholder="Enter activity title"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="activityType" class="form-label"
+                    >Activity Type</label
+                  >
+                  <select class="form-select" id="activityType">
+                    <option value="">Select activity type</option>
+                    <option value="sports">
+                      Sports (Football, Cricket, Basketball, etc.)
+                    </option>
+                    <option value="cultural">
+                      Cultural (Dance, Music, Drama, Festival)
+                    </option>
+                    <option value="entertainment">
+                      Entertainment (Movie Night, Fun Fair)
+                    </option>
+                    <option value="social">
+                      Social (Picnic, Gathering, Celebration)
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="dates" class="form-label">Date(s) *</label>
+                  <input type="date" class="form-control" id="dates" required />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="venue" class="form-label"
+                    >Venue / Location *</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="venue"
+                    placeholder="Enter venue or location"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="organizers" class="form-label"
+                    >Organizer(s)</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="organizers"
+                    placeholder="Enter organizers (comma separated)"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="specialGuests" class="form-label"
+                    >Special Guests / Judges (optional)</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="specialGuests"
+                    placeholder="Enter special guests or judges"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 2: Article Content -->
+            <div class="form-section">
+              <h2 class="section-title">Article Content</h2>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="shortSummary" class="form-label"
+                    >Short Summary *</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="shortSummary"
+                    rows="3"
+                    placeholder="Brief summary of the activity (2-3 lines)"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="fullArticle" class="form-label"
+                    >Full Article *</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="fullArticle"
+                    rows="6"
+                    placeholder="Detailed write-up with flow of activities"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="objectives" class="form-label">Objectives</label>
+                  <textarea
+                    class="form-control"
+                    id="objectives"
+                    rows="4"
+                    placeholder="Why the activity was organized"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="participationDetails" class="form-label"
+                    >Participation Details</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="participationDetails"
+                    rows="4"
+                    placeholder="Number of students, teams, or attendees"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="results" class="form-label"
+                    >Results / Achievements</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="results"
+                    rows="4"
+                    placeholder="Winning teams, outstanding performances, awards"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="impact" class="form-label"
+                    >Impact / Feedback</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="impact"
+                    rows="4"
+                    placeholder="Audience/student response, significance"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 3: Media -->
+            <div class="form-section">
+              <h2 class="section-title">Media</h2>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="featuredImage" class="form-label"
+                    >Featured Image</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="featuredImage"
+                    accept="image/*"
+                  />
+                  <div class="form-text">
+                    Upload a poster or highlight photo for the activity
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="galleryUploads" class="form-label"
+                    >Gallery Uploads</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="galleryUploads"
+                    multiple
+                    accept="image/*"
+                  />
+                  <div class="form-text">
+                    Upload action shots, crowd photos, award ceremonies, etc.
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="videoLink" class="form-label">Video Link</label>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="videoLink"
+                    placeholder="https://example.com/video"
+                  />
+                  <div class="form-text">
+                    Enter a link to a video of the performance, match
+                    highlights, or cultural program recording
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="documentsUpload" class="form-label"
+                    >Documents Upload (optional)</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="documentsUpload"
+                    multiple
+                    accept=".pdf,.doc,.docx,.xls,.xlsx"
+                  />
+                  <div class="form-text">
+                    Upload score sheets, schedules, event programs, etc.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 4: Additional Info -->
+            <div class="form-section">
+              <h2 class="section-title">Additional Info</h2>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="tags" class="form-label">Tags / Keywords</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tags"
+                    placeholder="Enter tags separated by commas (e.g., Sports, Cultural, Entertainment)"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label class="form-label">Audience</label>
+                  <div class="audience-options">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="students"
+                        value="students"
+                      />
+                      <label class="form-check-label" for="students"
+                        >Students</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="faculty"
+                        value="faculty"
+                      />
+                      <label class="form-check-label" for="faculty"
+                        >Faculty</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="alumni"
+                        value="alumni"
+                      />
+                      <label class="form-check-label" for="alumni"
+                        >Alumni</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="public"
+                        value="public"
+                      />
+                      <label class="form-check-label" for="public"
+                        >Public</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline-primary draft-btn">
+                <i class="bi bi-file-earmark-text"></i>
+                Save as Draft
+              </button>
+              <button type="submit" class="btn btn-primary create-btn">
+                <i class="bi bi-check-circle"></i>
+                Submit for Review
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="profileDropdown.js"></script>
+    <script src="CreateRecreation.js"></script>
+    <script src="majorEvents.js"></script>
+  </body>
+</html>

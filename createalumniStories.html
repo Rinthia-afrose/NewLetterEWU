@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create Alumni Story - East West University</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="categoryPages.css" />
+    <link rel="stylesheet" href="CreateAlumniStories.css" />
+      <link rel="stylesheet" href="majorEvents.css" />
+</head>
+  <body class="create-alumni-story-page">
+    <script>
+      // Check if user is logged in
+      if (!localStorage.getItem("isLoggedIn")) {
+        window.location.href = "loginPage.html";
+      }
+    </script>
+    <!-- Top Header Bar -->
+    <header class="header">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="logo">
+              <a href="homepage.html"><img
+                src="Images/logo.png"
+                alt="East West University"
+                class="header-logo"/></a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="header-right">
+              <nav class="header-nav">
+                <a href="homepage.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link notification-link">
+                  Notification
+                  <span class="notification-badge">2</span>
+                </a>
+                <a href="printPage.html" class="nav-link">Prints</a>
+                <a href="vcNewsletter.html" class="nav-link">VC Newsletter</a>
+                <div class="user-dropdown">
+                  <a href="#" class="nav-link" id="userBtn">Profile</a>
+                  <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="profile.html" class="dropdown-item">
+                      <i class="bi bi-person"></i> View Profile
+                    </a>
+                    <a
+                      href="loginPage.html"
+                      class="dropdown-item"
+                      id="logoutLink"
+                    >
+                      <i class="bi bi-box-arrow-right"></i> Logout
+                    </a>
+                  </div>
+                </div>
+              </nav>
+              <div class="search-container">
+                <i class="bi bi-search search-icon"></i>
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Search..."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Title Bar - Top of page -->
+    <div class="page-title-bar">
+      <div class="container-fluid">
+        <h1 class="page-title">Create Alumni Story</h1>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+      
+
+      <!-- Back Button -->
+      <button
+        type="button"
+        class="btn btn-secondary back-btn"
+        onclick="window.location.href='alumniStories.html'"
+      >
+        <i class="bi bi-arrow-left-circle"></i>
+      </button>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Form Container -->
+        <div class="form-container">
+          <form id="createAlumniStoryForm">
+            <!-- Section 1: Alumnus Info -->
+            <div class="form-section">
+              <h2 class="section-title">Alumnus Info</h2>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="alumnusName" class="form-label">Name *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="alumnusName"
+                    placeholder="Enter alumnus name"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="degreeYear" class="form-label"
+                    >Degree / Year *</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="degreeYear"
+                    placeholder="e.g., BSc in CSE, 2020"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="department" class="form-label">Department</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="department"
+                    placeholder="e.g., Computer Science & Engineering"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="occupation" class="form-label"
+                    >Occupation / Current Role</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="occupation"
+                    placeholder="Current position"
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="organization" class="form-label"
+                    >Current Organization</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="organization"
+                    placeholder="Current company/organization"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 2: Article Content -->
+            <div class="form-section">
+              <h2 class="section-title">Article Content</h2>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="shortSummary" class="form-label"
+                    >Short Summary * (approx. 150–200 chars)</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="shortSummary"
+                    rows="3"
+                    placeholder="Brief summary of the story"
+                    maxlength="200"
+                    required
+                  ></textarea>
+                  <div class="form-text">
+                    <span id="summaryCharCount">0</span>/200 characters
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="fullStory" class="form-label"
+                    >Full Story * (detailed write-up, 3000+ chars
+                    allowed)</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="fullStory"
+                    rows="10"
+                    placeholder="Detailed alumni story"
+                    required
+                  ></textarea>
+                  <div class="form-text">Minimum 3000 characters</div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="achievements" class="form-label"
+                    >Achievements / Contributions (optional field for
+                    highlights)</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="achievements"
+                    rows="4"
+                    placeholder="Key achievements and contributions"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 3: Media -->
+            <div class="form-section">
+              <h2 class="section-title">Media</h2>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="featuredImage" class="form-label"
+                    >Featured Image (professional photo / profile)</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="featuredImage"
+                    accept="image/*"
+                  />
+                  <div class="form-text">
+                    Upload a professional photo of the alumnus
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label class="form-label"
+                    >Gallery Uploads (event photos, achievements, certificates —
+                    Add More)</label
+                  >
+                  <div id="galleryUploadsContainer">
+                    <div class="gallery-upload-item mb-3">
+                      <input
+                        type="file"
+                        class="form-control gallery-upload"
+                        accept="image/*"
+                      />
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary mt-2"
+                    id="addGalleryUpload"
+                  >
+                    <i class="bi bi-plus-circle"></i> Add More
+                  </button>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="videoLink" class="form-label"
+                    >Video Link (optional, if testimonial interview is
+                    recorded)</label
+                  >
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="videoLink"
+                    placeholder="https://example.com/video"
+                  />
+                  <div class="form-text">
+                    Enter a link to a video interview or testimonial
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 4: Additional Info -->
+            <div class="form-section">
+              <h2 class="section-title">Additional Info</h2>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="tags" class="form-label"
+                    >Tags / Keywords (e.g., Entrepreneurship, Academic
+                    Excellence, Social Work)</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tags"
+                    placeholder="Enter tags separated by commas"
+                  />
+                  <div class="form-text">
+                    Enter relevant keywords for the story
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label class="form-label"
+                    >Audience (checkboxes: Students, Faculty, Alumni,
+                    Public)</label
+                  >
+                  <div class="audience-options">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="students"
+                        value="students"
+                      />
+                      <label class="form-check-label" for="students"
+                        >Students</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="faculty"
+                        value="faculty"
+                      />
+                      <label class="form-check-label" for="faculty"
+                        >Faculty</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="alumni"
+                        value="alumni"
+                      />
+                      <label class="form-check-label" for="alumni"
+                        >Alumni</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="public"
+                        value="public"
+                      />
+                      <label class="form-check-label" for="public"
+                        >Public</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline-primary draft-btn">
+                <i class="bi bi-file-earmark-text"></i>
+                Save as Draft
+              </button>
+              <button type="submit" class="btn btn-primary create-btn">
+                <i class="bi bi-check-circle"></i>
+                Submit for Review
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="profileDropdown.js"></script>
+    <script src="underReview.js"></script>
+    <script src="CreateAlumniStories.js"></script>
+        <script src="majorEvents.js"></script>
+
+  </body>
+</html>

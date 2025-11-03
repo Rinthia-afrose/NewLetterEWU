@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create Club Activity - East West University</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="categoryPages.css" />
+    <link rel="stylesheet" href="CreateMajorEvent.css" />
+    <link rel="stylesheet" href="majorEvents.css">
+  </head>
+  <body class="category-page">
+    <script>
+      // Check if user is logged in
+      if (!localStorage.getItem("isLoggedIn")) {
+        window.location.href = "loginPage.html";
+      }
+    </script>
+    <!-- Top Header Bar -->
+    <header class="header">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="logo">
+              <a href="homepage.html"><img
+                src="Images/logo.png"
+                alt="East West University"
+                class="header-logo"/></a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="header-right">
+              <nav class="header-nav">
+                <a href="homepage.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link notification-link">
+                  Notification
+                  <span class="notification-badge">2</span>
+                </a>
+                <a href="printPage.html" class="nav-link">Prints</a>
+                <a href="vcNewsletter.html" class="nav-link">VC Newsletter</a>
+                <div class="user-dropdown">
+                  <a href="#" class="nav-link" id="userBtn">Profile</a>
+                  <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="profile.html" class="dropdown-item">
+                      <i class="bi bi-person"></i> View Profile
+                    </a>
+                    <a
+                      href="loginPage.html"
+                      class="dropdown-item"
+                      id="logoutLink"
+                    >
+                      <i class="bi bi-box-arrow-right"></i> Logout
+                    </a>
+                  </div>
+                </div>
+              </nav>
+              <div class="search-container">
+                <i class="bi bi-search search-icon"></i>
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Search..."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Title Bar - Top of page -->
+    <div class="page-title-bar">
+      <div class="container-fluid">
+        <h1 class="page-title">Create Club Activity</h1>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+    
+      <!-- Back Button -->
+      <button
+        type="button"
+        class="btn btn-secondary back-btn"
+        onclick="window.location.href='clubActivities.html'"
+      >
+        <i class="bi bi-arrow-left-circle"></i>
+      </button>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Form Container -->
+        <div class="form-container">
+          <form id="createClubActivityForm">
+            <!-- Section 1: Club Information -->
+            <div class="form-section">
+              <h2 class="section-title">Club Info</h2>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="clubName" class="form-label">Club Name *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="clubName"
+                    placeholder="Enter club name"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="activityTitle" class="form-label"
+                    >Activity Title *</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="activityTitle"
+                    placeholder="Enter activity title"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="activityType" class="form-label"
+                    >Activity Type *</label
+                  >
+                  <select class="form-select" id="activityType" required>
+                    <option value="">Select activity type</option>
+                    <option value="workshop">Workshop</option>
+                    <option value="competition">Competition</option>
+                    <option value="cultural_event">Cultural Event</option>
+                    <option value="social_service">Social Service</option>
+                    <option value="sports_activity">Sports Activity</option>
+                    <option value="awareness_campaign">
+                      Awareness Campaign
+                    </option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="activityDate" class="form-label">Date(s) *</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="activityDate"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="venue" class="form-label"
+                    >Venue / Location *</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="venue"
+                    placeholder="Enter venue or location"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="organizers" class="form-label"
+                    >Organizer(s) / Collaborators</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="organizers"
+                    placeholder="Enter organizers or collaborators"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 2: Article Content -->
+            <div class="form-section">
+              <h2 class="section-title">Article Content</h2>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="shortSummary" class="form-label"
+                    >Short Summary * (150-200 characters)</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="shortSummary"
+                    rows="3"
+                    placeholder="Brief summary of the activity (150-200 characters)"
+                    maxlength="200"
+                    required
+                  ></textarea>
+                  <div class="form-text">
+                    <span id="summaryCharCount">0</span>/200 characters
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="fullArticle" class="form-label"
+                    >Full Article * (detailed description)</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="fullArticle"
+                    rows="6"
+                    placeholder="Detailed description of the activity"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="objectives" class="form-label"
+                    >Objectives (why it was organized)</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="objectives"
+                    rows="4"
+                    placeholder="Enter the objectives of the activity"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="activitiesPerformed" class="form-label"
+                    >Activities Performed (bullet points)</label
+                  >
+                  <div id="activitiesPerformedContainer">
+                    <div class="activity-item mb-2">
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          class="form-control activity-input"
+                          placeholder="Enter activity performed"
+                        />
+                        <button
+                          class="btn btn-outline-danger remove-activity"
+                          type="button"
+                        >
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary mt-2"
+                    id="addActivityBtn"
+                  >
+                    <i class="bi bi-plus-circle"></i> Add Activity
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 3: Participation -->
+            <div class="form-section">
+              <h2 class="section-title">Participation</h2>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="participants" class="form-label"
+                    >Number of Participants</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="participants"
+                    placeholder="Enter number of participants"
+                    min="0"
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="eligibility" class="form-label"
+                    >Eligibility</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="eligibility"
+                    placeholder="e.g., students, inter-university, open to public"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="results" class="form-label"
+                    >Results / Outcomes</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="results"
+                    rows="4"
+                    placeholder="Enter results, outcomes, winners, awards, impact, funds raised, etc."
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="feedback" class="form-label"
+                    >Feedback / Testimonials (optional)</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="feedback"
+                    rows="4"
+                    placeholder="Enter feedback or testimonials"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 4: Media -->
+            <div class="form-section">
+              <h2 class="section-title">Media</h2>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="featuredImage" class="form-label"
+                    >Featured Image</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="featuredImage"
+                    accept="image/*"
+                  />
+                  <div class="form-text">
+                    Upload a poster, group photo, or activity highlight image
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label class="form-label"
+                    >Gallery Uploads (multiple images)</label
+                  >
+                  <div id="galleryContainer">
+                    <div class="gallery-item mb-2">
+                      <div class="input-group">
+                        <input
+                          type="file"
+                          class="form-control gallery-input"
+                          accept="image/*"
+                        />
+                        <button
+                          class="btn btn-outline-danger remove-gallery"
+                          type="button"
+                        >
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary mt-2"
+                    id="addGalleryBtn"
+                  >
+                    <i class="bi bi-plus-circle"></i> Add More Images
+                  </button>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="videoLink" class="form-label">Video Link</label>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="videoLink"
+                    placeholder="https://example.com/video"
+                  />
+                  <div class="form-text">
+                    Enter a link to a video recording of the activity
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label class="form-label">Documents (PDFs)</label>
+                  <div id="documentsContainer">
+                    <div class="document-item mb-2">
+                      <div class="input-group">
+                        <input
+                          type="file"
+                          class="form-control document-input"
+                          accept=".pdf"
+                        />
+                        <button
+                          class="btn btn-outline-danger remove-document"
+                          type="button"
+                        >
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary mt-2"
+                    id="addDocumentBtn"
+                  >
+                    <i class="bi bi-plus-circle"></i> Add More Documents
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 5: Additional Information -->
+            <div class="form-section">
+              <h2 class="section-title">Additional Info</h2>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label for="tags" class="form-label">Tags / Keywords</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tags"
+                    placeholder="Enter tags separated by commas"
+                  />
+                  <div class="form-text">
+                    Enter relevant keywords for the activity (e.g., Debate,
+                    Sports, Volunteerism, Music)
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label class="form-label">Audience</label>
+                  <div class="audience-options">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="students"
+                        value="students"
+                      />
+                      <label class="form-check-label" for="students"
+                        >Students</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="faculty"
+                        value="faculty"
+                      />
+                      <label class="form-check-label" for="faculty"
+                        >Faculty</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="alumni"
+                        value="alumni"
+                      />
+                      <label class="form-check-label" for="alumni"
+                        >Alumni</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="public"
+                        value="public"
+                      />
+                      <label class="form-check-label" for="public"
+                        >Public</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline-primary draft-btn">
+                <i class="bi bi-file-earmark-text"></i>
+                Save as Draft
+              </button>
+              <button type="submit" class="btn btn-primary create-btn">
+                <i class="bi bi-check-circle"></i>
+                Submit for Review
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="profileDropdown.js"></script>
+    <script src="majorEvents.js"></script>
+    <script>
+      // Character counter for short summary
+      document
+        .getElementById("shortSummary")
+        .addEventListener("input", function () {
+          const charCount = this.value.length;
+          document.getElementById("summaryCharCount").textContent = charCount;
+        });
+
+      // Add activity performed
+      document
+        .getElementById("addActivityBtn")
+        .addEventListener("click", function () {
+          const container = document.getElementById(
+            "activitiesPerformedContainer"
+          );
+          const newItem = document.createElement("div");
+          newItem.className = "activity-item mb-2";
+          newItem.innerHTML = `
+          <div class="input-group">
+            <input type="text" class="form-control activity-input" placeholder="Enter activity performed">
+            <button class="btn btn-outline-danger remove-activity" type="button">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        `;
+          container.appendChild(newItem);
+        });
+
+      // Remove activity performed
+      document
+        .getElementById("activitiesPerformedContainer")
+        .addEventListener("click", function (e) {
+          if (e.target.closest(".remove-activity")) {
+            const item = e.target.closest(".activity-item");
+            if (this.children.length > 1) {
+              item.remove();
+            } else {
+              item.querySelector("input").value = "";
+            }
+          }
+        });
+
+      // Add gallery image
+      document
+        .getElementById("addGalleryBtn")
+        .addEventListener("click", function () {
+          const container = document.getElementById("galleryContainer");
+          const newItem = document.createElement("div");
+          newItem.className = "gallery-item mb-2";
+          newItem.innerHTML = `
+          <div class="input-group">
+            <input type="file" class="form-control gallery-input" accept="image/*">
+            <button class="btn btn-outline-danger remove-gallery" type="button">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        `;
+          container.appendChild(newItem);
+        });
+
+      // Remove gallery image
+      document
+        .getElementById("galleryContainer")
+        .addEventListener("click", function (e) {
+          if (e.target.closest(".remove-gallery")) {
+            const item = e.target.closest(".gallery-item");
+            if (this.children.length > 1) {
+              item.remove();
+            } else {
+              item.querySelector("input").value = "";
+            }
+          }
+        });
+
+      // Add document
+      document
+        .getElementById("addDocumentBtn")
+        .addEventListener("click", function () {
+          const container = document.getElementById("documentsContainer");
+          const newItem = document.createElement("div");
+          newItem.className = "document-item mb-2";
+          newItem.innerHTML = `
+          <div class="input-group">
+            <input type="file" class="form-control document-input" accept=".pdf">
+            <button class="btn btn-outline-danger remove-document" type="button">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        `;
+          container.appendChild(newItem);
+        });
+
+      // Remove document
+      document
+        .getElementById("documentsContainer")
+        .addEventListener("click", function (e) {
+          if (e.target.closest(".remove-document")) {
+            const item = e.target.closest(".document-item");
+            if (this.children.length > 1) {
+              item.remove();
+            } else {
+              item.querySelector("input").value = "";
+            }
+          }
+        });
+
+      // Draft save functionality
+      document
+        .querySelector(".draft-btn")
+        .addEventListener("click", function () {
+          // Get form data
+          const clubName = document.getElementById("clubName").value;
+          const activityTitle = document.getElementById("activityTitle").value;
+          const activityType = document.getElementById("activityType").value;
+          const activityDate = document.getElementById("activityDate").value;
+          const venue = document.getElementById("venue").value;
+          const organizers = document.getElementById("organizers").value;
+          const shortSummary = document.getElementById("shortSummary").value;
+          const fullArticle = document.getElementById("fullArticle").value;
+          const objectives = document.getElementById("objectives").value;
+          const results = document.getElementById("results").value;
+          const feedback = document.getElementById("feedback").value;
+          const videoLink = document.getElementById("videoLink").value;
+          const participants = document.getElementById("participants").value;
+          const eligibility = document.getElementById("eligibility").value;
+          const tags = document.getElementById("tags").value;
+
+          // Get activities performed
+          const activitiesPerformed = [];
+          document.querySelectorAll(".activity-input").forEach((input) => {
+            if (input.value) activitiesPerformed.push(input.value);
+          });
+
+          // Get selected audience
+          const audience = [];
+          document
+            .querySelectorAll('input[type="checkbox"]:checked')
+            .forEach((checkbox) => {
+              audience.push(checkbox.value);
+            });
+
+          // Create draft object
+          const draft = {
+            type: "clubActivity",
+            clubName: clubName,
+            activityTitle: activityTitle,
+            activityType: activityType,
+            activityDate: activityDate,
+            venue: venue,
+            organizers: organizers,
+            shortSummary: shortSummary,
+            fullArticle: fullArticle,
+            objectives: objectives,
+            activitiesPerformed: activitiesPerformed,
+            results: results,
+            feedback: feedback,
+            videoLink: videoLink,
+            participants: participants,
+            eligibility: eligibility,
+            tags: tags,
+            audience: audience,
+            date: new Date().toISOString(),
+          };
+
+          // Save draft to localStorage
+          saveDraft(draft);
+
+          // Show success message and redirect to drafts page
+          alert("Club activity saved as draft successfully!");
+          window.location.href = "drafts.html";
+        });
+
+      // Function to save draft to localStorage
+      function saveDraft(draft) {
+        // Get existing drafts from localStorage
+        const draftsJson = localStorage.getItem("drafts");
+        const drafts = draftsJson ? JSON.parse(draftsJson) : [];
+
+        // Check if we're editing an existing draft
+        const currentDraftIndex = localStorage.getItem("currentDraftIndex");
+        if (currentDraftIndex !== null) {
+          // Update existing draft
+          drafts[currentDraftIndex] = draft;
+          localStorage.removeItem("currentDraftIndex");
+          localStorage.removeItem("currentDraft");
+        } else {
+          // Add new draft
+          drafts.push(draft);
+        }
+
+        // Save updated drafts to localStorage
+        localStorage.setItem("drafts", JSON.stringify(drafts));
+      }
+
+      // Load draft data if editing
+      loadDraftData();
+
+      // Function to load draft data
+      function loadDraftData() {
+        const currentDraftJson = localStorage.getItem("currentDraft");
+        if (currentDraftJson) {
+          const draft = JSON.parse(currentDraftJson);
+
+          // Fill form fields with draft data
+          if (draft.clubName)
+            document.getElementById("clubName").value = draft.clubName;
+          if (draft.activityTitle)
+            document.getElementById("activityTitle").value =
+              draft.activityTitle;
+          if (draft.activityType)
+            document.getElementById("activityType").value = draft.activityType;
+          if (draft.activityDate)
+            document.getElementById("activityDate").value = draft.activityDate;
+          if (draft.venue) document.getElementById("venue").value = draft.venue;
+          if (draft.organizers)
+            document.getElementById("organizers").value = draft.organizers;
+          if (draft.shortSummary)
+            document.getElementById("shortSummary").value = draft.shortSummary;
+          if (draft.fullArticle)
+            document.getElementById("fullArticle").value = draft.fullArticle;
+          if (draft.objectives)
+            document.getElementById("objectives").value = draft.objectives;
+          if (draft.results)
+            document.getElementById("results").value = draft.results;
+          if (draft.feedback)
+            document.getElementById("feedback").value = draft.feedback;
+          if (draft.videoLink)
+            document.getElementById("videoLink").value = draft.videoLink;
+          if (draft.participants)
+            document.getElementById("participants").value = draft.participants;
+          if (draft.eligibility)
+            document.getElementById("eligibility").value = draft.eligibility;
+          if (draft.tags) document.getElementById("tags").value = draft.tags;
+
+          // Set activities performed
+          if (
+            draft.activitiesPerformed &&
+            Array.isArray(draft.activitiesPerformed) &&
+            draft.activitiesPerformed.length > 0
+          ) {
+            const container = document.getElementById(
+              "activitiesPerformedContainer"
+            );
+            container.innerHTML = "";
+            draft.activitiesPerformed.forEach((activity) => {
+              const newItem = document.createElement("div");
+              newItem.className = "activity-item mb-2";
+              newItem.innerHTML = `
+                <div class="input-group">
+                  <input type="text" class="form-control activity-input" placeholder="Enter activity performed" value="${activity}">
+                  <button class="btn btn-outline-danger remove-activity" type="button">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>
+              `;
+              container.appendChild(newItem);
+            });
+          }
+
+          // Set audience checkboxes
+          if (draft.audience && Array.isArray(draft.audience)) {
+            draft.audience.forEach((value) => {
+              const checkbox = document.querySelector(
+                `input[type="checkbox"][value="${value}"]`
+              );
+              if (checkbox) checkbox.checked = true;
+            });
+          }
+        }
+      }
+
+      // Form submission
+      document
+        .getElementById("createClubActivityForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          // In a real application, you would submit the form data to a server here
+          alert("Club activity submitted for review!");
+          // Reset form after submission
+          this.reset();
+          // Reset character counter
+          document.getElementById("summaryCharCount").textContent = "0";
+          // Reset dynamic fields to initial state
+          document.getElementById("activitiesPerformedContainer").innerHTML = `
+        <div class="activity-item mb-2">
+          <div class="input-group">
+            <input type="text" class="form-control activity-input" placeholder="Enter activity performed">
+            <button class="btn btn-outline-danger remove-activity" type="button">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+      `;
+          document.getElementById("galleryContainer").innerHTML = `
+        <div class="gallery-item mb-2">
+          <div class="input-group">
+            <input type="file" class="form-control gallery-input" accept="image/*">
+            <button class="btn btn-outline-danger remove-gallery" type="button">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+      `;
+          document.getElementById("documentsContainer").innerHTML = `
+        <div class="document-item mb-2">
+          <div class="input-group">
+            <input type="file" class="form-control document-input" accept=".pdf">
+            <button class="btn btn-outline-danger remove-document" type="button">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+      `;
+        });
+    </script>
+  </body>
+</html>

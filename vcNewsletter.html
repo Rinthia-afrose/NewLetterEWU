@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VC Newsletter - East West University</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="categoryPages.css" />
+      <link rel="stylesheet" href="majorEvents.css" />
+</head>
+  <body class="category-page">
+    <!-- Page Title Bar - Top of page -->
+    <div class="page-title-bar">
+      <div class="container-fluid">
+        <h1 class="page-title">VC newsletter</h1>
+      </div>
+    </div>
+    <!-- Top Header Bar -->
+    <header class="header">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="logo">
+              <a href="homepage.html"><img
+                src="Images/logo.png"
+                alt="East West University"
+                class="header-logo"/></a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="header-right">
+              <nav class="header-nav">
+                <a href="homepage.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link notification-link">
+                  Notification
+                  <span class="notification-badge">2</span>
+                </a>
+                <a href="printPage.html" class="nav-link">Prints</a>
+                <a href="vcNewsletter.html" class="nav-link">VC Newsletter</a>
+                <div class="user-dropdown">
+                  <a href="#" class="nav-link" id="userBtn">Profile</a>
+                  <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="profileVC.html" class="dropdown-item">
+                      <i class="bi bi-person"></i> View Profile
+                    </a>
+                    <a
+                      href="loginPage.html"
+                      class="dropdown-item"
+                      id="logoutLink"
+                    >
+                      <i class="bi bi-box-arrow-right"></i> Logout
+                    </a>
+                  </div>
+                </div>
+              </nav>
+              <div class="search-container">
+                <i class="bi bi-search search-icon"></i>
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Search..."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+      <!-- Hidden checkbox for pure CSS sidebar toggle -->
+      <input
+        type="checkbox"
+        id="sidebar-toggle-checkbox"
+        class="sidebar-checkbox"
+      />
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <h3>Categories</h3>
+          <label
+            for="sidebar-toggle-checkbox"
+            class="close-sidebar"
+            id="closeSidebar"
+          >
+            <i class="bi bi-x-lg"></i>
+          </label>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="researchGrant.html" class="sidebar-link">Research Grant</a>
+          <a href="journalPublications.html" class="sidebar-link">Journal Publications</a>
+          <a href="bookChapters.html" class="sidebar-link">Book Chapters</a>
+          <a href="booksAndEditedBooks.html" class="sidebar-link">Books and Edited Books</a>
+          <a href="conferenceProceeding.html" class="sidebar-link">Conference Proceeding</a>
+          <a href="conferencePresentation.html" class="sidebar-link">Conference Presentation</a>
+          <a href="seminarAndWorkshop.html" class="sidebar-link">Seminar and Workshop</a>
+          <a href="mediaVC.html" class="sidebar-link">Media</a>
+          <a href="achievementsVC.html" class="sidebar-link">Achievements</a>
+        </nav>
+      </aside>
+<!-- Sidebar Toggle Button -->
+      <label
+        for="sidebar-toggle-checkbox"
+        class="sidebar-toggle"
+        id="sidebarToggle"
+      >
+        <i class="bi bi-list"></i>
+      </label>
+
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Action Buttons -->
+        <div class="action-filter-row" id="actionFilterRow"></div>
+
+        <!-- Filter Container -->
+        <div class="filter-container">
+          <button
+            class="btn btn-outline-secondary filter-toggle"
+            id="filterToggle"
+          >
+            <i class="bi bi-funnel"></i>
+            Filter & Sort
+            <i class="bi bi-chevron-down filter-arrow"></i>
+          </button>
+          <button class="btn btn-primary generate-pdf-btn">
+            <i class="bi bi-file-earmark-pdf"></i>
+            Generate PDF
+          </button>
+        </div>
+
+        <!-- New Diverse Filter Section -->
+        <div class="filter-dropdown" id="filterDropdown">
+          <div class="filter-section">
+            <!-- General Filters -->
+            <div class="filter-category">
+              <h3 class="filter-category-title">General Filters</h3>
+
+              <!-- Date Range Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Date Range:</label>
+                  <div class="date-range">
+                    <input
+                      type="date"
+                      class="form-control date-input"
+                      placeholder="From"
+                    />
+                    <span class="date-separator">to</span>
+                    <input
+                      type="date"
+                      class="form-control date-input"
+                      placeholder="To"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Category Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Category:</label>
+                  <select class="form-select filter-select" multiple>
+                    <option value="major-events">Major Events</option>
+                    <option value="ccc-events">CCC Events</option>
+                    <option value="alumni-stories">Alumni Stories</option>
+                    <option value="club-activities">Club Activities</option>
+                    <option value="scholarships">Scholarships</option>
+                    <option value="library">Library</option>
+                    <option value="research">Research</option>
+                    <option value="recreation">Recreation</option>
+                    <option value="degree-review">Degree Review</option>
+                    <option value="seminars">Seminars</option>
+                    <option value="memberships">Memberships</option>
+                    <option value="training-programs">Training Programs</option>
+                    <option value="achievements">Achievements</option>
+                    <option value="map">Map</option>
+                    <option value="dept-activities">Dept. Activities</option>
+                    <option value="others">Others</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Department Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Department:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Department</option>
+                    <option value="cse">CSE</option>
+                    <option value="eee">EEE</option>
+                    <option value="business">Business</option>
+                    <option value="law">Law</option>
+                    <option value="economics">Economics</option>
+                    <option value="english">English</option>
+                    <option value="pharmacy">Pharmacy</option>
+                    <option value="sociology">Sociology</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Organizer Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Organizer(s):</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Organizer</option>
+                    <option value="clubs">Clubs</option>
+                    <option value="departments">Departments</option>
+                    <option value="ccc">CCC</option>
+                    <option value="registrar">Registrar</option>
+                    <option value="library">Library</option>
+                    <option value="external-partners">External Partners</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event & Activity Filters -->
+            <div class="filter-category">
+              <h3 class="filter-category-title">Event & Activity Filters</h3>
+
+              <!-- Event Date Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Event Date(s):</label>
+                  <div class="date-range">
+                    <input
+                      type="date"
+                      class="form-control date-input"
+                      placeholder="From"
+                    />
+                    <span class="date-separator">to</span>
+                    <input
+                      type="date"
+                      class="form-control date-input"
+                      placeholder="To"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event Type Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Event Type:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Event Type</option>
+                    <option value="workshop">Workshop</option>
+                    <option value="seminar">Seminar</option>
+                    <option value="orientation">Orientation</option>
+                    <option value="sports">Sports</option>
+                    <option value="cultural">Cultural</option>
+                    <option value="competition">Competition</option>
+                    <option value="festival">Festival</option>
+                    <option value="mou-signing">MoU Signing</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Venue Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Venue / Location:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Venue</option>
+                    <option value="library">Library</option>
+                    <option value="auditorium">Auditorium</option>
+                    <option value="main-building">Main Building</option>
+                    <option value="online">Online</option>
+                    <option value="external-venue">External Venue</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Participation Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Participation / Audience:</label>
+                  <div class="checkbox-group">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="students"
+                        value="students"
+                      />
+                      <label class="form-check-label" for="students"
+                        >Students</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="faculty"
+                        value="faculty"
+                      />
+                      <label class="form-check-label" for="faculty"
+                        >Faculty</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="alumni"
+                        value="alumni"
+                      />
+                      <label class="form-check-label" for="alumni"
+                        >Alumni</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="public"
+                        value="public"
+                      />
+                      <label class="form-check-label" for="public"
+                        >Public</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Research Filters -->
+            <div class="filter-category">
+              <h3 class="filter-category-title">Research Filters</h3>
+
+              <!-- Research Type Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Research Type:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Research Type</option>
+                    <option value="journal">Journal</option>
+                    <option value="conference">Conference</option>
+                    <option value="thesis">Thesis</option>
+                    <option value="institutional-report">
+                      Institutional Report
+                    </option>
+                    <option value="book-chapter">Book Chapter</option>
+                    <option value="project">Project</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Supervisor Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Supervisor / Mentor:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter supervisor/mentor name"
+                  />
+                </div>
+              </div>
+
+              <!-- Funding Source Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Funding Source:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Funding Source</option>
+                    <option value="govt">Govt.</option>
+                    <option value="alumni">Alumni</option>
+                    <option value="industry">Industry</option>
+                    <option value="international">International</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Conference/Journal Name Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Conference / Journal Name:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter conference/journal name"
+                  />
+                </div>
+              </div>
+
+              <!-- DOI/Link Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">DOI / Publication Link:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter DOI or publication link"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Scholarships Filters -->
+            <div class="filter-category">
+              <h3 class="filter-category-title">Scholarships Filters</h3>
+
+              <!-- Scholarship Type Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Scholarship Type:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Scholarship Type</option>
+                    <option value="merit-based">Merit-based</option>
+                    <option value="need-based">Need-based</option>
+                    <option value="alumni">Alumni</option>
+                    <option value="govt">Govt.</option>
+                    <option value="international">International</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Eligibility Criteria Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Eligibility Criteria:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Criteria</option>
+                    <option value="undergraduate">Undergraduate</option>
+                    <option value="graduate">Graduate</option>
+                    <option value="department-specific">
+                      Department-specific
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Award Amount Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Award Amount / Waiver %:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter amount or percentage"
+                  />
+                </div>
+              </div>
+
+              <!-- Duration Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Duration:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Duration</option>
+                    <option value="one-time">One-time</option>
+                    <option value="per-semester">Per Semester</option>
+                    <option value="renewable">Renewable</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Deadline Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Deadline / Validity:</label>
+                  <div class="date-range">
+                    <input
+                      type="date"
+                      class="form-control date-input"
+                      placeholder="From"
+                    />
+                    <span class="date-separator">to</span>
+                    <input
+                      type="date"
+                      class="form-control date-input"
+                      placeholder="To"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Achievements Filters -->
+            <div class="filter-category">
+              <h3 class="filter-category-title">Achievements Filters</h3>
+
+              <!-- Achievement Type Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Achievement Type:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Achievement Type</option>
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
+                    <option value="research">Research</option>
+                    <option value="sports">Sports</option>
+                    <option value="cultural">Cultural</option>
+                    <option value="institutional">Institutional</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Awarding Body Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label"
+                    >Awarding Body / Organization:</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter awarding body/organization"
+                  />
+                </div>
+              </div>
+
+              <!-- Level Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Level:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Level</option>
+                    <option value="university">University</option>
+                    <option value="national">National</option>
+                    <option value="international">International</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Date of Achievement Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Date of Achievement:</label>
+                  <div class="date-range">
+                    <input
+                      type="date"
+                      class="form-control date-input"
+                      placeholder="From"
+                    />
+                    <span class="date-separator">to</span>
+                    <input
+                      type="date"
+                      class="form-control date-input"
+                      placeholder="To"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Library / Membership / Training Filters -->
+            <div class="filter-category">
+              <h3 class="filter-category-title">
+                Library / Membership / Training
+              </h3>
+
+              <!-- Library Update Type Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Library Update Type:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Update Type</option>
+                    <option value="new-books">New Books</option>
+                    <option value="journals">Journals</option>
+                    <option value="workshop">Workshop</option>
+                    <option value="exhibition">Exhibition</option>
+                    <option value="policy-update">Policy Update</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Membership Type Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Membership Type:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Membership Type</option>
+                    <option value="institutional">Institutional</option>
+                    <option value="faculty">Faculty</option>
+                    <option value="student">Student</option>
+                    <option value="international-association">
+                      International Association
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Training Type Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Training Type:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Training Type</option>
+                    <option value="technical">Technical</option>
+                    <option value="soft-skills">Soft Skills</option>
+                    <option value="career">Career</option>
+                    <option value="research">Research</option>
+                    <option value="certification">Certification</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Certification Provided Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Certification Provided:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Impact & Editorial Filters (VC-Only) -->
+            <div class="filter-category">
+              <h3 class="filter-category-title">
+                Impact & Editorial (VC-Only Filters)
+              </h3>
+
+              <!-- Impact Level Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Impact Level:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Impact Level</option>
+                    <option value="high">High (National/International)</option>
+                    <option value="medium">Medium (University-wide)</option>
+                    <option value="local">Local (Club/Department)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Highlight Priority Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Highlight Priority:</label>
+                  <div class="checkbox-group">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="vc-desk-message"
+                        value="vc-desk-message"
+                      />
+                      <label class="form-check-label" for="vc-desk-message"
+                        >VC's Desk Message</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="flagship-events"
+                        value="flagship-events"
+                      />
+                      <label class="form-check-label" for="flagship-events"
+                        >Flagship Events (Convocation, Orientation, MoUs)</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="achievements-excellence"
+                        value="achievements-excellence"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="achievements-excellence"
+                        >Achievements of Excellence</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="social-community-impact"
+                        value="social-community-impact"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="social-community-impact"
+                        >Social/Community Impact</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Audience Relevance Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Audience Relevance:</label>
+                  <select class="form-select filter-select" multiple>
+                    <option value="internal">Internal</option>
+                    <option value="external">External</option>
+                    <option value="partners">Partners</option>
+                    <option value="employers">Employers</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Featured Contributors Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Featured Contributors:</label>
+                  <select class="form-select filter-select" multiple>
+                    <option value="faculty">Faculty</option>
+                    <option value="students">Students</option>
+                    <option value="alumni">Alumni</option>
+                    <option value="partnerships">Partnerships</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Output & Layout Controls -->
+            <div class="filter-category">
+              <h3 class="filter-category-title">Output & Layout Controls</h3>
+
+              <!-- Sort By Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Sort By:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Sort Option</option>
+                    <option value="date">Date</option>
+                    <option value="category">Category</option>
+                    <option value="department">Department</option>
+                    <option value="impact">Impact</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Group By Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Group By:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Group Option</option>
+                    <option value="category">Category</option>
+                    <option value="department">Department</option>
+                    <option value="audience">Audience</option>
+                    <option value="impact">Impact</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Include Media Toggle -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Include Media:</label>
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="includeMedia"
+                    />
+                    <label class="form-check-label" for="includeMedia"
+                      >Images/Videos or Text-only</label
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Summary vs Full Article Toggle -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Summary vs Full Article:</label>
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="summaryFullArticle"
+                    />
+                    <label class="form-check-label" for="summaryFullArticle"
+                      >Digest / Detailed</label
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Preview Mode Toggle -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Preview Mode:</label>
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="previewMode"
+                    />
+                    <label class="form-check-label" for="previewMode"
+                      >Show formatted newsletter before final export</label
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Export Options Filter -->
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label class="filter-label">Export Options:</label>
+                  <select class="form-select filter-select">
+                    <option value="">Select Export Option</option>
+                    <option value="pdf">PDF</option>
+                    <option value="web">Web</option>
+                    <option value="print">Print</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Filter Actions -->
+            <div class="filter-actions">
+              <button class="btn btn-primary apply-filters">
+                <i class="bi bi-funnel"></i>
+                Apply Filters
+              </button>
+              <button class="btn btn-outline-secondary clear-filters">
+                <i class="bi bi-x-circle"></i>
+                Clear All
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-area">
+          <div class="watermark-container">
+            <div class="watermark">
+              <div class="watermark-logo">
+                <img
+                  src="Images/logo-short.png"
+                  alt="East West University"
+                  class="watermark-logo-img"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="profileDropdown.js"></script>
+    <script src="categoryPages.js"></script>
+    <script src="sidebar.js"></script>
+  </body>
+</html>
