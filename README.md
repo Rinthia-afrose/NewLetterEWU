@@ -18,3 +18,5 @@ A web-based Newsletter Management System designed to help East West University m
 1. Clone the repository:
    ```bash
    git clone https://github.com/Rinthia-afrose/NewLetterEWU.git
+
+hi this is Rinthia
